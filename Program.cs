@@ -7,6 +7,8 @@ namespace to_do_itv2
     {
         static void Main(string[] args)
         {
+            ToDo toDo1 = new ToDo(1, "chores");
+            ToDo toDo2 = new ToDo(0, "code");
             Person person1 = new Person(0, "Vestelind", "Alex");
             Person person2 = new Person(1, "Vestelind", "Max");
 
@@ -15,6 +17,8 @@ namespace to_do_itv2
             Console.WriteLine("" + PersonSequencer.NextPersonId(person1));
             Console.WriteLine("" + PersonSequencer.Reset());
             Console.WriteLine("" + PersonSequencer.NextPersonId(person2));
+            Console.WriteLine(toDo1.Id + " " + toDo1.Description);
+            Console.WriteLine(TodoSequencer.NextToDoId(toDo2));
         }
     }
 }
