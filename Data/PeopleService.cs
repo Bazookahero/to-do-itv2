@@ -20,7 +20,7 @@ namespace to_do_itv2.Data
         }
         public Person FindAll()
         {
-            for (int i = 0; i < people.Length; i++)
+            for (int i = 0; i < People.Length; i++)
             return people[i];
             return null;
         }
