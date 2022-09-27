@@ -11,10 +11,10 @@ namespace to_do_itv2.Data
     {
         private static int personId;
 
-        public static int NextPersonId(Person person)
+        
+        public static int NextPersonId()
         {
-            personId = person.Id;
-            return ++personId;
+            return personId++;
         }
         public static int Reset()
         {

@@ -14,9 +14,9 @@ namespace to_do_itv2.Models
         private string firstName;
         private string lastName;
         
-        
-        public static int PersonsCreated { get { return idCounter; } }
-        public int Id { get { return id; } }
+        public string FullName { get { return FirstName + " "+ LastName; } }
+        public static int PeopleCreated { get { return idCounter; } }
+        public int PersonId { get { return id; } }
         public string FirstName
         {
             get { return firstName; }
@@ -43,7 +43,7 @@ namespace to_do_itv2.Models
         }
         public Person(int id, string LastName, string FirstName)
         {
-            ++idCounter;
+            idCounter++;
             this.id = id;
             firstName = FirstName;
             lastName = LastName;
