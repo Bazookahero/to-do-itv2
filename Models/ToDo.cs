@@ -13,8 +13,8 @@ namespace to_do_itv2.Models
         private bool done;
         private Person? assignee;
 
-        public bool Done { get { return done; } }
-        public Person Assignee { get { return assignee; } }
+        public bool Done { get { return done; } set { done = value; } }
+        public Person Assignee { get { return assignee; } set { assignee = value; } } 
         public string Description
         {
             get { return description; }
@@ -27,11 +27,19 @@ namespace to_do_itv2.Models
              description = value;
             }
         }
-        public int Id { get { return id; } }
-        public ToDo(int id, string description)
+        public int Id { get {return id; } }
+        public ToDo(int id, string description, bool done)
         {
             this.id = id;
-            this.description = description;   
+            this.description = description;
+            Done = done;
+        }
+        public ToDo(int id, string description, bool done, Person assignee)
+        {
+            this.id = id;
+            this.description = description;
+            Done = done;
+            Assignee = assignee;
         }
     }
 }

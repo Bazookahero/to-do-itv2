@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,18 @@ namespace to_do_itv2.Models
             this.id = id;
             firstName = FirstName;
             lastName = LastName;
+        }
+        public Person(string LastName, string FirstName)
+        {
+            idCounter++;
+            this.id = PersonSequencer.NextPersonId();
+            firstName = FirstName;
+            lastName = LastName;
+        }
+        public override string ToString()
+        {
+            return
+                "" + PersonId + " " + LastName + " " + FirstName; 
         }
     }
 }

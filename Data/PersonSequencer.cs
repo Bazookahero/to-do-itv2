@@ -11,7 +11,7 @@ namespace to_do_itv2.Data
     {
         private static int personId;
 
-        
+        public static int PersonId { get { return personId; } }
         public static int NextPersonId()
         {
             return personId++;

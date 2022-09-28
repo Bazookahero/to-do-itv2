@@ -10,19 +10,26 @@ namespace to_do_itv2.Data
 {
     public class PeopleService
     {
-        private static Person[] people = new Person[5];
+        private static Person[] people = new Person[0];
+        //private Person[] people2 = new Person[people.Length + 1];
         public int peopleCount;
 
-        public Person[] People { get { return people; } }
+        public Person[] People { get { return people; } 
+            /*set
+            {
+                for (int i = 0; i < people.Length; i++)
+                {
+                    people[i] = people2[i];
+                }
+            }*/
+        }
         public int Size()
         {
             return people.Length;
         }
-        public Person FindAll()
+        public Person[] FindAll()
         {
-            for (int i = 0; i < People.Length; i++)
-            return people[i];
-            return null;
+            return people;
         }
         public Person FindById(int personId)
         {
@@ -31,10 +38,13 @@ namespace to_do_itv2.Data
         public Person NewPerson(string firstName, string lastName)
         {
             Person p = new Person(PersonSequencer.NextPersonId(), lastName, firstName);
+            people = new Person[peopleCount+1];
             people[peopleCount] = p;
             peopleCount++;
+            //people2.Append(p);
             return p;
         }
+
         public void Clear()
         {
             people = new Person[0];
