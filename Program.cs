@@ -7,7 +7,13 @@ namespace to_do_itv2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            PeopleService peopleService = new PeopleService();
+            peopleService.NewPerson("Alex", "Vestelind");
+            peopleService.NewPerson("Monika", "Vestelind");
+            Console.WriteLine(peopleService.FindById(0));
+            Console.WriteLine(peopleService.FindById(1));
+            Console.WriteLine(peopleService.FindAll());
+            Console.WriteLine(peopleService.Size());
         }
     }
 }

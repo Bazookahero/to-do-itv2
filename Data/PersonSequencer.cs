@@ -9,7 +9,7 @@ namespace to_do_itv2.Data
 {
     public class PersonSequencer
     {
-        private static int personId;
+        private static int personId = 0;
 
         public static int PersonId { get { return personId; } }
         public static int NextPersonId()
