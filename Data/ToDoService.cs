@@ -9,7 +9,7 @@ namespace to_do_itv2.Data
 {
     public class ToDoService
     {
-        private static ToDo[] toDoArray = new ToDo[10];
+        private static ToDo[] toDoArray = new ToDo[0];
         public int toDoCount;
 
         public ToDo[] ToDoArray { get { return toDoArray; } }
@@ -17,11 +17,9 @@ namespace to_do_itv2.Data
         {
             return toDoArray.Length;
         }
-        public ToDo FindAll()
+        public ToDo[] FindAll()
         {
-            for (int i = 0; i < toDoArray.Length; i++)
-                return toDoArray[i];
-            return null;
+            return toDoArray;
         }
         public ToDo FindById(int toDoId)
         {
@@ -38,7 +36,7 @@ namespace to_do_itv2.Data
         public ToDo NewToDo(string description, bool toDobool)
         {
             ToDo t = new ToDo(TodoSequencer.NextToDoId(), description, toDobool);
-            toDoArray = new ToDo[toDoCount+1];
+            Array.Resize(ref toDoArray, toDoArray.Length + 1);
             toDoArray[toDoCount] = t;
             toDoCount++;
             return t;
@@ -95,6 +93,22 @@ namespace to_do_itv2.Data
                 }
             }
             return unassignedItemArray;
+        }
+        public void RemoveItem(int x)
+        {
+            ToDo remove = FindById(x);
+            for (int i = 0; i < toDoArray.Length; i++)
+            {
+                if (toDoArray[i] == remove)
+                {
+                    for (int offset = i + 1; offset < toDoArray.Length; offset++, i++)
+                    {
+                        toDoArray[i] = toDoArray[offset];
+                    }
+                    Array.Resize(ref toDoArray, toDoArray.Length - 1);
+                    break;
+                }
+            }
         }
     }
 }
