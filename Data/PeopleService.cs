@@ -11,10 +11,8 @@ namespace to_do_itv2.Data
     public class PeopleService
     {
         private static Person[] people = new Person[0];
-        //private static List<Person> peopleList = new List<Person>();
         public int peopleCount;
 
-        //public List<Person> PeopleList { get { return peopleList; } }
         public Person[] People { get { return people; } }
         public int Size()
         {
@@ -33,15 +31,12 @@ namespace to_do_itv2.Data
             Person p = new Person(PersonSequencer.NextPersonId(), lastName, firstName);
             Array.Resize(ref people, people.Length+1);
             people[peopleCount] = p;
-            //peopleList.Append<Person>(p);
-            //people = peopleList.ToArray();
             peopleCount++;
             return p;
         }
 
         public void Clear()
         {
-            //peopleList.Clear();
             people = new Person[0];
             peopleCount = 0;
         }

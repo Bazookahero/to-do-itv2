@@ -30,7 +30,7 @@ namespace to_do_itv2.Data
         public ToDo NewToDo(string description, bool toDobool, Person assignee)
         {
             ToDo t = new ToDo(TodoSequencer.NextToDoId(), description, toDobool, assignee);
-            toDoArray = new ToDo[toDoCount + 1];
+            Array.Resize(ref toDoArray, toDoArray.Length + 1);
             toDoArray[toDoCount] = t;
             toDoCount++;
             return t;
