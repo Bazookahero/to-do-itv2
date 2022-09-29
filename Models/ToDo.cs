@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using to_do_itv2.Data;
 
 namespace to_do_itv2.Models
 {
@@ -28,6 +29,18 @@ namespace to_do_itv2.Models
             }
         }
         public int Id { get {return id; } }
+        public ToDo(string description)
+        {
+            this.id = TodoSequencer.NextToDoId();
+            this.description = description;
+            Done = done;
+        }
+        public ToDo(int id, string description)
+        {
+            this.id = id;
+            this.description = description;
+            Done = done;
+        }
         public ToDo(int id, string description, bool done)
         {
             this.id = id;

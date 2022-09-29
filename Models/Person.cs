@@ -37,7 +37,7 @@ namespace to_do_itv2.Models
             {
                 if (string.IsNullOrWhiteSpace(value) || value.Length < 2)
                 {
-                    throw new ArgumentException("First name must contain at least 2 letters");
+                    throw new ArgumentException("Last name must contain at least 2 letters");
                 }
                 lastName = value;
             }

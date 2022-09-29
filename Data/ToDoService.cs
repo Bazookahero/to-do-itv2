@@ -41,20 +41,39 @@ namespace to_do_itv2.Data
             toDoCount++;
             return t;
         }
+        public ToDo NewToDo(string description)
+        {
+            ToDo t = new ToDo(TodoSequencer.NextToDoId(), description);
+            Array.Resize(ref toDoArray, toDoArray.Length + 1);
+            toDoArray[toDoCount] = t;
+            toDoCount++;
+            return t;
+        }
+        public ToDo NewToDo(int toDoId, string description, bool toDobool)
+        {
+            ToDo t = new ToDo(toDoId, description, toDobool);
+            Array.Resize(ref toDoArray, toDoArray.Length + 1);
+            toDoArray[toDoCount] = t;
+            toDoCount++;
+            return t;
+        }
         public void Clear()
         {
             toDoArray = new ToDo[0];
             toDoCount = 0;
+            TodoSequencer.Reset();
         }
         public ToDo[] FindByDoneStatus(bool done)
         {
-            ToDo[] boolStatusArray = new ToDo[toDoArray.Length];
+            int counter = 0;
+            ToDo[] boolStatusArray = new ToDo[0];
             foreach (ToDo toDo in toDoArray)
             {
-                if(done == toDo.Done)
+                if (done == toDo.Done)
                 {
-                    boolStatusArray.Append(toDo);
-                }
+                    Array.Resize<ToDo>(ref boolStatusArray, boolStatusArray.Length + 1);
+                    boolStatusArray[counter++] = toDo;
+                }    
             }
             return boolStatusArray;
         }

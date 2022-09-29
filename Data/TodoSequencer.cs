@@ -11,6 +11,7 @@ namespace to_do_itv2.Data
     {
         private static int toDoId;
 
+        public static int ToDoId { get { return toDoId; } set { toDoId = value; } }
         public static int NextToDoId()
         {
             return toDoId++;

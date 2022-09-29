@@ -34,7 +34,7 @@ namespace to_do_itv2.Data
             peopleCount++;
             return p;
         }
-        public void RemoveItem(int x)
+        public void RemovePerson(int x)
         {
             Person remove = FindById(x);
             for (int i = 0; i < people.Length; i++)
@@ -54,6 +54,7 @@ namespace to_do_itv2.Data
         {
             people = new Person[0];
             peopleCount = 0;
+            PersonSequencer.Reset();
         }
     }
 }
