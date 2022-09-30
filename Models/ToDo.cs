@@ -41,21 +41,21 @@ namespace to_do_itv2.Models
             this.id = TodoSequencer.NextToDoId();
             this.description = description;
             Done = done;
-            assignee = Assignee;
+            Assignee = assignee;
         }
         public ToDo(int id, string description)
         {
             this.id = id;
             this.description = description;
             Done = done;
-            assignee = Assignee;
+            Assignee = assignee;
         }
         public ToDo(int id, string description, bool done)
         {
             this.id = id;
             this.description = description;
             Done = done;
-            assignee = Assignee;
+            Assignee = assignee;
         }
         public ToDo(int id, string description, bool done, Person assignee)
         {
