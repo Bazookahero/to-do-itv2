@@ -85,7 +85,7 @@ namespace to_do_itv2.Data
             ToDo[] assigneeArray = new ToDo[0];
             foreach (ToDo toDo in toDoArray)
                 {
-                    if (personId == toDo.Assignee.PersonId)
+                    if (personId == toDo.Assignee?.PersonId)
                     {
                         Array.Resize<ToDo>(ref assigneeArray, assigneeArray.Length + 1);
                         assigneeArray[counter++] = toDo;
