@@ -12,10 +12,17 @@ namespace to_do_itv2.Models
         private readonly int id;
         private string description;
         private bool done;
-        private Person? assignee;
+        private Person assignee;
 
         public bool Done { get { return done; } set { done = value; } }
-        public Person Assignee { get { return assignee; } set { assignee = value; } } 
+        public Person Assignee
+        {
+            get { return assignee; }
+            set
+            {
+                { assignee = value; }
+            }
+        }
         public string Description
         {
             get { return description; }
@@ -34,18 +41,21 @@ namespace to_do_itv2.Models
             this.id = TodoSequencer.NextToDoId();
             this.description = description;
             Done = done;
+            assignee = Assignee;
         }
         public ToDo(int id, string description)
         {
             this.id = id;
             this.description = description;
             Done = done;
+            assignee = Assignee;
         }
         public ToDo(int id, string description, bool done)
         {
             this.id = id;
             this.description = description;
             Done = done;
+            assignee = Assignee;
         }
         public ToDo(int id, string description, bool done, Person assignee)
         {

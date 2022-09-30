@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using to_do_itv2.Models;
@@ -79,36 +81,42 @@ namespace to_do_itv2.Data
         }
         public ToDo[] FindByAssignee(int personId)
         {
-            ToDo[] assigneeArray = new ToDo[toDoArray.Length];
+            int counter = 0;
+            ToDo[] assigneeArray = new ToDo[0];
             foreach (ToDo toDo in toDoArray)
-            {
-                if (personId == toDo.Id)
                 {
-                    assigneeArray.Append(toDo);
+                    if (personId == toDo.Assignee.PersonId)
+                    {
+                        Array.Resize<ToDo>(ref assigneeArray, assigneeArray.Length + 1);
+                        assigneeArray[counter++] = toDo;
+                    }
                 }
-            }
             return assigneeArray;
         }
         public ToDo[] FindByAssignee(Person assignee)
         {
-            ToDo[] assigneeArray = new ToDo[toDoArray.Length];
+            int counter = 0;
+            ToDo[] assigneeArray = new ToDo[0];
             foreach (ToDo toDo in toDoArray)
             {
                 if (assignee == toDo.Assignee)
                 {
-                    assigneeArray.Append(toDo);
+                    Array.Resize<ToDo>(ref assigneeArray, assigneeArray.Length + 1);
+                    assigneeArray[counter++] = toDo;
                 }
             }
             return assigneeArray;
         }
         public ToDo[] FindUnassignedTodoItems()
-        {
-            ToDo[] unassignedItemArray = new ToDo[toDoArray.Length];
+        { 
+            int counter = 0;
+            ToDo[] unassignedItemArray = new ToDo[0];
             foreach (ToDo toDo in toDoArray)
             {
                 if (toDo.Assignee == null)
                 {
-                    unassignedItemArray.Append(toDo);
+                    Array.Resize<ToDo>(ref unassignedItemArray, unassignedItemArray.Length + 1);
+                    unassignedItemArray[counter++] = toDo;
                 }
             }
             return unassignedItemArray;
